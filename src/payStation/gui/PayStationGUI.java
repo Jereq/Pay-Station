@@ -1,23 +1,20 @@
 package payStation.gui;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import net.miginfocom.swing.MigLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JLabel;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import com.jgoodies.forms.factories.FormFactory;
-import javax.swing.Box;
 import java.awt.Component;
-import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+import net.miginfocom.swing.MigLayout;
+
+/**
+ * Automatically created by WindowBuilder in Eclipse
+ */
 public class PayStationGUI {
 
 	private JFrame frmPayStation;
