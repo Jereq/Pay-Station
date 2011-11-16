@@ -56,6 +56,9 @@ public class PayStationGUI {
 		Component horizontalStrut = Box.createHorizontalStrut(30);
 		frmPayStation.getContentPane().add(horizontalStrut, "cell 3 0");
 		
+		Component horizontalStrut_2 = Box.createHorizontalStrut(30);
+		frmPayStation.getContentPane().add(horizontalStrut_2, "cell 5 0");
+		
 		JLabel lblYouHavePaid = new JLabel("You have paid:");
 		frmPayStation.getContentPane().add(lblYouHavePaid, "cell 1 1");
 		
@@ -67,7 +70,7 @@ public class PayStationGUI {
 		
 		JLabel lblInsertCoin = new JLabel("Insert coin");
 		lblInsertCoin.setFont(new Font("Tahoma", Font.BOLD, 11));
-		frmPayStation.getContentPane().add(lblInsertCoin, "cell 6 1");
+		frmPayStation.getContentPane().add(lblInsertCoin, "cell 6 1,alignx center");
 		
 		JLabel lblYouHavePaid_1 = new JLabel("Your parking time:");
 		frmPayStation.getContentPane().add(lblYouHavePaid_1, "cell 1 2");
