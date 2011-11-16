@@ -5,34 +5,42 @@ import payStation.paystationInterface.Receipt;
 
 public class PayStationImpl implements PayStation {
 
+	private int payment;
+	private int minutes;
+	
 	@Override
 	public void addPayment(int coinValue) {
-		// TODO Auto-generated method stub
-
+		payment += coinValue;
 	}
 
 	@Override
 	public int getPayment() {
-		// TODO Auto-generated method stub
-		return 0;
+		return payment;
 	}
 
 	@Override
 	public int getMinutes() {
-		// TODO Auto-generated method stub
-		return 0;
+		return minutes;
 	}
 
 	@Override
 	public Receipt buy() {
-		// TODO Auto-generated method stub
-		return null;
+		Receipt receipt = new ReceiptImpl(minutes, minutes);
+		reset();
+		
+		return receipt;
 	}
 
 	@Override
 	public void cancel() {
-		// TODO Auto-generated method stub
-
+		reset();
 	}
 
+	/**
+	 * Reset the pay-station to prepare it for the next customer
+	 */
+	private void reset(){
+		payment = 0;
+		minutes = 0;
+	}
 }
