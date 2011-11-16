@@ -1,4 +1,4 @@
-package payStation.paystationInterface;
+package payStation.payStationInterface;
 
 public interface PayStation {
 /**

@@ -1,4 +1,4 @@
-package payStation.paystationInterface.exception;
+package payStation.payStationInterface.exception;
 
 public class IllegalCoinException extends Exception {
 	private int coinValue;

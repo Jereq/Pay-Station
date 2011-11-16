@@ -1,7 +1,7 @@
 package payStation.impl;
 
-import payStation.paystationInterface.PayStation;
-import payStation.paystationInterface.Receipt;
+import payStation.payStationInterface.PayStation;
+import payStation.payStationInterface.Receipt;
 
 public class PayStationImpl implements PayStation {
 
