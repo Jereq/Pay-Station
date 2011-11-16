@@ -1,5 +1,4 @@
 package payStation.paystationInterface;
-import payStation.paystationInterface.*;
 
 public interface PayStation {
 void addPayment(int coinValue);
