@@ -112,7 +112,8 @@ public class PayStationGUI {
 				} catch (NumberFormatException ex) {
 					// User entered something other than a number, do nothing
 				} catch (IllegalCoinException ex) {
-					JOptionPane.showInternalMessageDialog(frmPayStation,
+					JOptionPane.showInternalMessageDialog(
+							frmPayStation.getContentPane(),
 							"Invalid coin inserted: coin returned",
 							"Invalid coin", JOptionPane.INFORMATION_MESSAGE);
 				}
