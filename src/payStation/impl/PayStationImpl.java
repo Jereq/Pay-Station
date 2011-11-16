@@ -2,15 +2,18 @@ package payStation.impl;
 
 import payStation.payStationInterface.PayStation;
 import payStation.payStationInterface.Receipt;
+import payStation.payStationInterface.exception.IllegalCoinException;
 
 public class PayStationImpl implements PayStation {
 
 	private int payment;
-	private int minutes;
 	
 	@Override
-	public void addPayment(int coinValue) {
-		payment += coinValue;
+	public void addPayment(int coinValue) throws IllegalCoinException {
+		if (coinValue == 5 || coinValue == 10 || coinValue == 25)
+			payment += coinValue;
+		else
+			throw new IllegalCoinException(coinValue);
 	}
 
 	@Override
@@ -20,12 +23,12 @@ public class PayStationImpl implements PayStation {
 
 	@Override
 	public int getMinutes() {
-		return minutes;
+		return payment / 5 * 2;	//Two minutes parking time per five cents
 	}
 
 	@Override
 	public Receipt buy() {
-		Receipt receipt = new ReceiptImpl(minutes, minutes);
+		Receipt receipt = new ReceiptImpl(getMinutes(), getPayment());
 		reset();
 		
 		return receipt;
@@ -41,6 +44,5 @@ public class PayStationImpl implements PayStation {
 	 */
 	private void reset(){
 		payment = 0;
-		minutes = 0;
 	}
 }
