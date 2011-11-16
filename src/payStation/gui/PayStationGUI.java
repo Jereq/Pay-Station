@@ -49,16 +49,12 @@ public class PayStationGUI {
 	private void initialize() {
 		frmPayStation = new JFrame();
 		frmPayStation.setTitle("Pay Station");
-		frmPayStation.setBounds(100, 100, 418, 167);
+		frmPayStation.setBounds(100, 100, 419, 194);
 		frmPayStation.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPayStation.getContentPane().setLayout(new MigLayout("", "[][][][][][][grow][][]", "[][][][][]"));
 		
 		Component horizontalStrut = Box.createHorizontalStrut(30);
 		frmPayStation.getContentPane().add(horizontalStrut, "cell 3 0");
-		
-		JLabel lblInsertCoin = new JLabel("Insert coin");
-		lblInsertCoin.setFont(new Font("Tahoma", Font.BOLD, 11));
-		frmPayStation.getContentPane().add(lblInsertCoin, "cell 6 0");
 		
 		JLabel lblYouHavePaid = new JLabel("You have paid:");
 		frmPayStation.getContentPane().add(lblYouHavePaid, "cell 1 1");
@@ -68,6 +64,10 @@ public class PayStationGUI {
 		
 		JLabel lblCents = new JLabel("cent");
 		frmPayStation.getContentPane().add(lblCents, "cell 4 1");
+		
+		JLabel lblInsertCoin = new JLabel("Insert coin");
+		lblInsertCoin.setFont(new Font("Tahoma", Font.BOLD, 11));
+		frmPayStation.getContentPane().add(lblInsertCoin, "cell 6 1");
 		
 		JLabel lblYouHavePaid_1 = new JLabel("Your parking time:");
 		frmPayStation.getContentPane().add(lblYouHavePaid_1, "cell 1 2");
