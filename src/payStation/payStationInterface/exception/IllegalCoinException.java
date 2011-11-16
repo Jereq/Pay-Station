@@ -2,9 +2,7 @@ package payStation.payStationInterface.exception;
 
 /**
  * The class <code>IllegalCoinException</code> is an <code>Exception</code>
- * used to indicate that a invalid coin value has been used
- * 
- * @author Sebastian Larsson
+ * used to indicate that a invalid coin value has been used.
  */
 public class IllegalCoinException extends Exception {
 	/**
@@ -15,7 +13,7 @@ public class IllegalCoinException extends Exception {
 	private int coinValue;
 	
 	/**
-	 * Constructor passing the illegal coin value that caused this exception
+	 * Constructor passing the illegal coin value that caused this exception.
 	 * 
 	 * @param coinValue the illegal coin value
 	 */
@@ -24,7 +22,7 @@ public class IllegalCoinException extends Exception {
 	}
 	
 	/**
-	 * Gets the illegal coin value that caused this exception
+	 * Gets the illegal coin value that caused this exception.
 	 * 
 	 * @return the illegal coin value
 	 */

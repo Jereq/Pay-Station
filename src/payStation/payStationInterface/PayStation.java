@@ -2,40 +2,50 @@ package payStation.payStationInterface;
 
 import payStation.payStationInterface.exception.IllegalCoinException;
 
+/**
+ * The interface <code>PayStation</code> represents a pay station for parking
+ * tickets. Money is added with <code>addPayment</code> and the transaction is
+ * completed with <code>buy</code>.
+ */
 public interface PayStation {
 	/**
-	 * adds to the payment as coins are added.
+	 * Adds a certain value to the payment. Implementations are to verify that
+	 * the coin value is valid, and throw <code>IllegalCoinException</code> if
+	 * it is not.
 	 * 
 	 * @param coinValue
+	 *            value of the inserted coin, may be any (possibly invalid)
+	 *            number
 	 * @throws IllegalCoinException
-	 *             This exception is thrown if this payStation consider the
-	 *             input <code>coinValue</code> to be invalid.
+	 *             This exception may be thrown if the implemented payStation
+	 *             consider the input <code>coinValue</code> to be invalid.
 	 */
 	void addPayment(int coinValue) throws IllegalCoinException;
 
 	/**
-	 * returns the amount paid in cents
+	 * Returns the current payment in cents.
 	 * 
 	 * @return the amount paid in cents
 	 */
 	int getPayment();
 
 	/**
-	 * returns the parking time in minutes
+	 * Returns the current parking time in minutes.
 	 * 
 	 * @return the parking time in minutes
 	 */
 	int getMinutes();
 
 	/**
-	 * acknowledges the purchase and prints a receipt.
+	 * Acknowledges the purchase and returns a receipt.
 	 * 
-	 * @return a receipt
+	 * @return a receipt providing parking time and payment
 	 */
 	Receipt buy();
 
 	/**
-	 * Resets the Paystation
+	 * Resets this <code>PayStation</code> in preparation for the next
+	 * transaction
 	 */
 	void cancel();
 }
