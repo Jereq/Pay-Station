@@ -2,6 +2,10 @@ package payStation.paystationInterface;
 import payStation.paystationInterface.*;
 
 public interface PayStation {
+/**
+ * adds to the payment as coins are added.
+ * @param coinValue
+ */
 void addPayment(int coinValue);
 /**
  * returns the amount paid in cents
@@ -14,9 +18,12 @@ int getPayment();
  */
 int getMinutes();
 /**
- * 
- * @return
+ * acknowledges the purchase and prints a receipt. 
+ * @return a receipt
  */
 Receipt buy();
+/**
+ * Resets the Paystation
+ */
 void cancel();
 }
