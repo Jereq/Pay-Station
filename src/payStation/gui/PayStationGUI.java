@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import payStation.payStationInterface.*;
+import payStation.payStationInterface.exception.IllegalCoinException;
 import payStation.impl.*;
 
 /**
@@ -97,7 +98,9 @@ public class PayStationGUI {
 		coinInputTextField.addActionListener(new ActionListener() {
 			/*
 			 * (non-Javadoc) When enter is pressed after a number has been
-			 * input, we try to get the number and send it to the payStation
+			 * input, we try to get the number and send it to the payStation. If
+			 * the coin is deemed invalid by the pay station, an
+			 * IllegalCoinException is thrown
 			 */
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -108,6 +111,10 @@ public class PayStationGUI {
 					updateLabels();
 				} catch (NumberFormatException ex) {
 					// User entered something other than a number, do nothing
+				} catch (IllegalCoinException ex) {
+					JOptionPane.showInternalMessageDialog(frmPayStation,
+							"Invalid coin inserted: coin returned",
+							"Invalid coin", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		});
@@ -130,11 +137,10 @@ public class PayStationGUI {
 			public void actionPerformed(ActionEvent arg0) {
 				Receipt receipt = payStation.buy();
 				updateLabels();
-				JOptionPane.showInternalConfirmDialog(
+				JOptionPane.showInternalMessageDialog(
 						frmPayStation.getContentPane(),
 						"Payment: " + receipt.getPayment() + "\nParking Time: "
 								+ receipt.getMinutes(), "Receipt",
-						JOptionPane.DEFAULT_OPTION,
 						JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
