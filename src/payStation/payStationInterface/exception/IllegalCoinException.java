@@ -1,8 +1,14 @@
 package payStation.payStationInterface.exception;
 
+/**
+ * The class <code>IllegalCoinException</code> is an <code>Exception</code>
+ * used to indicate that a invalid coin value has been used
+ * 
+ * @author Sebastian Larsson
+ */
 public class IllegalCoinException extends Exception {
 	/**
-	 * Silence warning about serialVersionUID not present
+	 * Silence warning about <code>serialVersionUID</code> not present
 	 */
 	private static final long serialVersionUID = 1L;
 	
