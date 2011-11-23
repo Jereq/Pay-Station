@@ -19,7 +19,7 @@ public interface Currency {
 	 * @param coin2
 	 * @return the coin to second rate
 	 */
-	int getStandardRate(Coin coin2);
+	int getStandardRate(Coin coin);
 	/**
 	 * gives the value as a string plus the currency signs
 	 * 
