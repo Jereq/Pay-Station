@@ -1,25 +1,29 @@
 package payStation.payStationInterface;
 
 /**
- * Base for different currencies.
- * To add another currency implement <code>Currency</code>.
- *
+ * Base for different currencies. To add another currency implement
+ * <code>Currency</code>.
+ * 
  */
 public interface Currency {
 	/**
 	 * checks so that the coin has a valid value
 	 * 
-	 * @param coin
-	 * @return valid or unvalid as true or false
+	 * @param coinValue
+	 *            the value of the coin to check
+	 * @return true if coinValue is a valid value in this currency, otherwise
+	 *         false
 	 */
-	boolean checkValidCoin(Coin coin);
+	boolean checkValidCoinValue(int coinValue);
+
 	/**
-	 * Gets the standard coin to second rate for the currency
+	 * Returns the coin value to second ratio
 	 * 
-	 * @param coin2
+	 * @param coin
 	 * @return the coin to second rate
 	 */
-	int getStandardRate(Coin coin);
+	int getStandardRate();
+
 	/**
 	 * gives the value as a string plus the currency signs
 	 * 
