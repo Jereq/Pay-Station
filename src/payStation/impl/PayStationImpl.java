@@ -24,7 +24,6 @@ public class PayStationImpl implements PayStation {
 	
 	@Override
 	public void addPayment(Coin coin) throws IllegalCoinException {
-		// TODO Auto-generated method stub
 		if (currency.checkValidCoin(coin)==true)
 			payment += coin.getValue();
 		else
@@ -67,5 +66,12 @@ public class PayStationImpl implements PayStation {
 	public Currency getCurrency() {
 		
 		return currency;
+	}
+
+	@Override
+	public void setCurrency(Currency currency) {
+		
+		this.currency = currency;
+		reset();
 	}
 }
