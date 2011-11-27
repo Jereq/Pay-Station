@@ -1,5 +1,7 @@
 package payStation.impl;
 
+import payStation.payStationInterface.Coin;
+import payStation.payStationInterface.Currency;
 import payStation.payStationInterface.PayStation;
 import payStation.payStationInterface.Receipt;
 import payStation.payStationInterface.exception.IllegalCoinException;
@@ -16,14 +18,17 @@ public class PayStationImpl implements PayStation {
 	 * same way, but is now calculated on demand
 	 */
 	private int payment;
-
+	
+	private Currency currency;
+	
+	
 	@Override
-	public void addPayment(int coinValue) throws IllegalCoinException {
-		// Business constraint, only these coins are accepted
-		if (coinValue == 5 || coinValue == 10 || coinValue == 25)
-			payment += coinValue;
+	public void addPayment(Coin coin) throws IllegalCoinException {
+		// TODO Auto-generated method stub
+		if (currency.checkValidCoin(coin)==true)
+			payment += coin.getValue();
 		else
-			throw new IllegalCoinException(coinValue);
+			throw new IllegalCoinException(coin.getValue());
 	}
 
 	@Override
@@ -54,5 +59,13 @@ public class PayStationImpl implements PayStation {
 	 */
 	private void reset() {
 		payment = 0;
+	}
+
+	
+
+	@Override
+	public Currency getCurrency() {
+		
+		return null;
 	}
 }
