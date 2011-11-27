@@ -3,6 +3,10 @@ package payStation.impl.currency;
 import payStation.payStationInterface.Coin;
 import payStation.payStationInterface.Currency;
 
+/**
+ * The SwedishCrowns implementation of the currency class
+ * The coins allowed are 1kr, 5kr, 10kr.
+ */
 public class SwedishCrowns implements Currency {
 
 	@Override
