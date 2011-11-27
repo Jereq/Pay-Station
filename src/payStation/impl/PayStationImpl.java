@@ -2,6 +2,7 @@ package payStation.impl;
 
 import payStation.payStationInterface.Coin;
 import payStation.payStationInterface.Currency;
+import payStation.payStationInterface.PayRate;
 import payStation.payStationInterface.PayStation;
 import payStation.payStationInterface.Receipt;
 import payStation.payStationInterface.exception.IllegalCoinException;
@@ -18,8 +19,8 @@ public class PayStationImpl implements PayStation {
 	 * same way, but is now calculated on demand
 	 */
 	private int payment;
-	
 	private Currency currency;
+	private PayRate payRate;
 	
 	
 	@Override
@@ -72,6 +73,19 @@ public class PayStationImpl implements PayStation {
 	public void setCurrency(Currency currency) {
 		
 		this.currency = currency;
+		reset();
+	}
+
+	@Override
+	public PayRate getPayRate() {
+		
+		return payRate;
+	}
+
+	@Override
+	public void setPayRate(PayRate payRate) {
+		
+		this.payRate = payRate;
 		reset();
 	}
 }
