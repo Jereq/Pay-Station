@@ -66,6 +66,6 @@ public class PayStationImpl implements PayStation {
 	@Override
 	public Currency getCurrency() {
 		
-		return null;
+		return currency;
 	}
 }
