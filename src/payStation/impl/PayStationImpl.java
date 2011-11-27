@@ -21,11 +21,27 @@ public class PayStationImpl implements PayStation {
 	private int payment;
 	private Currency currency;
 	private PayRate payRate;
-	
-	
+
+	/**
+	 * Constructor. Creates a pay payStation with a given currency and a given
+	 * payRate.
+	 * 
+	 * @param currency
+	 *            The currency the payStation will accept. Can later be changed
+	 *            with <code>setCurrency</code>.
+	 * @param payRate
+	 *            The payRate the payStation will use to calculate parking time.
+	 *            Can later be changed with <code>setPayRate</code>.
+	 */
+	public PayStationImpl(Currency currency, PayRate payRate) {
+		payment = 0;
+		this.currency = currency;
+		this.payRate = payRate;
+	}
+
 	@Override
 	public void addPayment(Coin coin) throws IllegalCoinException {
-		if (currency.checkValidCoin(coin)==true)
+		if (coin.getCurrency() == currency && coin.isValid())
 			payment += coin.getValue();
 		else
 			throw new IllegalCoinException(coin.getValue());
@@ -38,7 +54,8 @@ public class PayStationImpl implements PayStation {
 
 	@Override
 	public int getMinutes() {
-		return payment / 5 * 2; // Two minutes parking time per five cents
+		int secondsStandardRate = payment * currency.getStandardRate();
+		return payRate.calculateTime(secondsStandardRate);
 	}
 
 	@Override
@@ -61,30 +78,24 @@ public class PayStationImpl implements PayStation {
 		payment = 0;
 	}
 
-	
-
 	@Override
 	public Currency getCurrency() {
-		
 		return currency;
 	}
 
 	@Override
 	public void setCurrency(Currency currency) {
-		
 		this.currency = currency;
 		reset();
 	}
 
 	@Override
 	public PayRate getPayRate() {
-		
 		return payRate;
 	}
 
 	@Override
 	public void setPayRate(PayRate payRate) {
-		
 		this.payRate = payRate;
 		reset();
 	}
