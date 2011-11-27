@@ -10,17 +10,16 @@ import payStation.payStationInterface.exception.IllegalCoinException;
 public interface PayStation {
 	/**
 	 * Adds a certain value to the payment. Implementations are to verify that
-	 * the coin value is valid, and throw <code>IllegalCoinException</code> if
+	 * the coin is valid, and throw <code>IllegalCoinException</code> if
 	 * it is not.
 	 * 
-	 * @param coinValue
-	 *            value of the inserted coin, may be any (possibly invalid)
-	 *            number
+	 * @param coin
+	 *            the inserted coin, different implementations determine currency
 	 * @throws IllegalCoinException
 	 *             This exception may be thrown if the implemented payStation
-	 *             consider the input <code>coinValue</code> to be invalid.
+	 *             consider the input <code>coin</code> to be invalid.
 	 */
-	void addPayment(int coinValue) throws IllegalCoinException;
+	void addPayment(Coin coin) throws IllegalCoinException;
 
 	/**
 	 * Returns the current payment in cents.
@@ -28,6 +27,14 @@ public interface PayStation {
 	 * @return the amount paid in cents
 	 */
 	int getPayment();
+
+	/**
+	 * Returns the current currency used in the payStation.
+	 * 
+	 * @return the current currency, <code>getPayment</code> returns the value
+	 *         in this currency.
+	 */
+	Currency getCurrency();
 
 	/**
 	 * Returns the current parking time in minutes.
