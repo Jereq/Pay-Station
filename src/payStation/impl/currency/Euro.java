@@ -19,7 +19,7 @@ public class Euro implements Currency {
 	}
 
 	@Override
-	public int getStandardRate() {
+	public float getStandardRate() {
 		return 36; // 36=(60*3)/5 in other words 24 seconds
 					// per cent.
 	}

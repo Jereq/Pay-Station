@@ -17,7 +17,7 @@ public class SwedishCrowns implements Currency {
 	}
 
 	@Override
-	public int getStandardRate() {
+	public float getStandardRate() {
 		return 24; // 24=(60*2)/5 in other words 24 seconds
 					// per cent.
 	}

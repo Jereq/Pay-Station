@@ -54,7 +54,7 @@ public class PayStationImpl implements PayStation {
 
 	@Override
 	public int getMinutes() {
-		int secondsStandardRate = payment * currency.getStandardRate();
+		int secondsStandardRate = (int)(payment * currency.getStandardRate());
 		return payRate.calculateTime(secondsStandardRate);
 	}
 

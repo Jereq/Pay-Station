@@ -20,9 +20,9 @@ public interface Currency {
 	 * Returns the coin value to second ratio
 	 * 
 	 * @param coin
-	 * @return the coin to second rate
+	 * @return the coin to second rate in seconds/coin value
 	 */
-	int getStandardRate();
+	float getStandardRate();
 
 	/**
 	 * gives the value as a string plus the currency signs
