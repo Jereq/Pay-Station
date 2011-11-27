@@ -34,4 +34,9 @@ public class CoinImpl implements Coin {
 		return currency;
 	}
 
+	@Override
+	public boolean isValid() {
+		return currency.checkValidCoinValue(value);
+	}
+
 }
