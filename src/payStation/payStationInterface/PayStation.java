@@ -46,6 +46,22 @@ public interface PayStation {
 	void setCurrency(Currency currency);
 
 	/**
+	 * Returns the current pay rate used by the pay station.
+	 * 
+	 * @return the current pay rate, should affect <code>getMinutes</code>.
+	 */
+	PayRate getPayRate();
+
+	/**
+	 * Sets the pay rate used to calculate parking time. Should reset the pay
+	 * station.
+	 * 
+	 * @param payRate
+	 *            the new pay rate to be used by the pay station
+	 */
+	void setPayRate(PayRate payRate);
+
+	/**
 	 * Returns the current parking time in minutes.
 	 * 
 	 * @return the parking time in minutes
