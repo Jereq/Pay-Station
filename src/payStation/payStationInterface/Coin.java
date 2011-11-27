@@ -18,4 +18,11 @@ public interface Coin {
 	 * @return the currency of the coin
 	 */
 	Currency getCurrency();
+	
+	/**
+	 * Checks if the coins value is valid for the coins currency.
+	 * 
+	 * @return true if the coin value is valid for its currency
+	 */
+	boolean isValid();
 }
