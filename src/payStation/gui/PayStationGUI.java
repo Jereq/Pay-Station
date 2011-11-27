@@ -73,6 +73,8 @@ public class PayStationGUI {
 	 */
 	public PayStationGUI() {
 		initialize();
+		
+		updateLabels();
 	}
 
 	/**
@@ -198,7 +200,7 @@ public class PayStationGUI {
 				sekSettingsButton.setSelected(true);
 				sekSettingsButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						payStation.setCurrency(sek);
+						changeCurrency(sek);
 					}
 				});
 				currency.add(sekSettingsButton);
@@ -207,7 +209,7 @@ public class PayStationGUI {
 				JRadioButton dollarSettingsButton = new JRadioButton("Dollar");
 				dollarSettingsButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						payStation.setCurrency(dollar);
+						changeCurrency(dollar);
 					}
 				});
 				currency.add(dollarSettingsButton);
@@ -216,7 +218,7 @@ public class PayStationGUI {
 				JRadioButton euroSettingsButton = new JRadioButton("Euro");
 				euroSettingsButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						payStation.setCurrency(euro);
+						changeCurrency(euro);
 					}
 				});
 				currency.add(euroSettingsButton);
@@ -235,7 +237,7 @@ public class PayStationGUI {
 				linearButton.setSelected(true);
 				linearButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						payStation.setPayRate(linear);
+						changePayRate(linear);
 					}
 				});
 				paymentPlan.add(linearButton);
@@ -244,7 +246,7 @@ public class PayStationGUI {
 				JRadioButton increasingButton = new JRadioButton("Increasing");
 				increasingButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						payStation.setPayRate(increasing);
+						changePayRate(increasing);
 					}
 				});
 				paymentPlan.add(increasingButton);
@@ -253,7 +255,7 @@ public class PayStationGUI {
 				JRadioButton decreasingButton = new JRadioButton("Decreasing");
 				decreasingButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						payStation.setPayRate(decreasing);
+						changePayRate(decreasing);
 					}
 				});
 				paymentPlan.add(decreasingButton);
@@ -307,5 +309,19 @@ public class PayStationGUI {
 	private void updateLabels() {
 		paidAmountLabel.setText(Integer.toString(payStation.getPayment()));
 		minutesLabel.setText(Integer.toString(payStation.getMinutes()));
+	}
+	
+	private void changeCurrency(Currency currency) {
+		if (currency != payStation.getCurrency()) {
+			payStation.setCurrency(currency);
+			updateLabels();
+		}
+	}
+	
+	private void changePayRate(PayRate payRate) {
+		if (payRate != payStation.getPayRate())  {
+			payStation.setPayRate(payRate);
+			updateLabels();
+		}
 	}
 }
