@@ -295,8 +295,8 @@ public class PayStationGUI {
 				updateLabels();
 				JOptionPane.showInternalMessageDialog(
 						frmPayStation.getContentPane(),
-						"Payment: " + receipt.getPayment() + "\nParking Time: "
-								+ receipt.getMinutes(), "Receipt",
+						"Payment: " + payStation.getCurrency().formatCoinValue(receipt.getPayment()) + "\nParking Time: "
+								+ receipt.getMinutes() + " minutes", "Receipt",
 						JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
@@ -307,8 +307,8 @@ public class PayStationGUI {
 	 * payStation
 	 */
 	private void updateLabels() {
-		paidAmountLabel.setText(Integer.toString(payStation.getPayment()));
-		minutesLabel.setText(Integer.toString(payStation.getMinutes()));
+		paidAmountLabel.setText(payStation.getCurrency().formatCoinValue(payStation.getPayment()));
+		minutesLabel.setText(payStation.getMinutes() + " minutes");
 	}
 	
 	private void changeCurrency(Currency currency) {
