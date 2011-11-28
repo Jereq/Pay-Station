@@ -24,7 +24,7 @@ public class SwedishCrowns implements Currency {
 
 	@Override
 	public String formatCoinValue(int value) {
-		String x = value + "¢";
+		String x = value + " kr";
 		return x;
 	}
 
