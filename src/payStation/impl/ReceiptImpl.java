@@ -1,5 +1,6 @@
 package payStation.impl;
 
+import payStation.payStationInterface.Currency;
 import payStation.payStationInterface.Receipt;
 
 /**
@@ -10,6 +11,7 @@ public class ReceiptImpl implements Receipt {
 
 	private int minutes;
 	private int payment;
+	private Currency currency;
 
 	/**
 	 * Constructor.
@@ -18,10 +20,13 @@ public class ReceiptImpl implements Receipt {
 	 *            number of minutes of parking time
 	 * @param payment
 	 *            number of cents paid
+	 * @param currency
+	 *            the currency of payment
 	 */
-	public ReceiptImpl(int minutes, int payment) {
+	public ReceiptImpl(int minutes, int payment, Currency currency) {
 		this.minutes = minutes;
 		this.payment = payment;
+		this.currency = currency;
 	}
 
 	@Override
@@ -32,6 +37,11 @@ public class ReceiptImpl implements Receipt {
 	@Override
 	public int getPayment() {
 		return payment;
+	}
+
+	@Override
+	public Currency getCurrency() {
+		return currency;
 	}
 
 }

@@ -296,7 +296,7 @@ public class PayStationGUI {
 				JOptionPane.showInternalMessageDialog(
 						frmPayStation.getContentPane(),
 						"Payment: "
-								+ payStation.getCurrency().formatCoinValue(
+								+ receipt.getCurrency().formatCoinValue(
 										receipt.getPayment())
 								+ "\nParking Time: " + receipt.getMinutes()
 								+ " minutes", "Receipt",

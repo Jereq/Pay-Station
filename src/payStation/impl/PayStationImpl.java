@@ -60,7 +60,7 @@ public class PayStationImpl implements PayStation {
 
 	@Override
 	public Receipt buy() {
-		Receipt receipt = new ReceiptImpl(getMinutes(), getPayment());
+		Receipt receipt = new ReceiptImpl(getMinutes(), getPayment(), getCurrency());
 		reset();
 
 		return receipt;
