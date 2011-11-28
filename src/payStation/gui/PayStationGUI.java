@@ -45,7 +45,7 @@ public class PayStationGUI {
 	private static Currency dollar = new Dollar();
 	private static Currency euro = new Euro();
 	private Currency selectedInputCurrency = sek;
-	
+
 	private static PayRate linear = new LinearPayRate();
 	private static PayRate increasing = new IncreasingPayRate();
 	private static PayRate decreasing = new DecreasingPayRate();
@@ -73,7 +73,7 @@ public class PayStationGUI {
 	 */
 	public PayStationGUI() {
 		initialize();
-		
+
 		updateLabels();
 	}
 
@@ -295,8 +295,11 @@ public class PayStationGUI {
 				updateLabels();
 				JOptionPane.showInternalMessageDialog(
 						frmPayStation.getContentPane(),
-						"Payment: " + payStation.getCurrency().formatCoinValue(receipt.getPayment()) + "\nParking Time: "
-								+ receipt.getMinutes() + " minutes", "Receipt",
+						"Payment: "
+								+ payStation.getCurrency().formatCoinValue(
+										receipt.getPayment())
+								+ "\nParking Time: " + receipt.getMinutes()
+								+ " minutes", "Receipt",
 						JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
@@ -307,19 +310,34 @@ public class PayStationGUI {
 	 * payStation
 	 */
 	private void updateLabels() {
-		paidAmountLabel.setText(payStation.getCurrency().formatCoinValue(payStation.getPayment()));
+		paidAmountLabel.setText(payStation.getCurrency().formatCoinValue(
+				payStation.getPayment()));
 		minutesLabel.setText(payStation.getMinutes() + " minutes");
 	}
-	
+
+	/**
+	 * Change the currency in the pay station and make sure the GUI is updated
+	 * as necessary. Will do nothing if the currency is already set.
+	 * 
+	 * @param currency
+	 *            the new currency
+	 */
 	private void changeCurrency(Currency currency) {
 		if (currency != payStation.getCurrency()) {
 			payStation.setCurrency(currency);
 			updateLabels();
 		}
 	}
-	
+
+	/**
+	 * Change the pay rate in the pay station and make sure the GUI is updated
+	 * as necessary. Will do nothing if the pay rate is already set.
+	 * 
+	 * @param payRate
+	 *            the new pay rate
+	 */
 	private void changePayRate(PayRate payRate) {
-		if (payRate != payStation.getPayRate())  {
+		if (payRate != payStation.getPayRate()) {
 			payStation.setPayRate(payRate);
 			updateLabels();
 		}
