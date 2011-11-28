@@ -13,9 +13,9 @@ public interface Receipt {
 	public int getMinutes();
 
 	/**
-	 * Returns the number of cents in the receipt
+	 * Returns the value of the payment in the receipt
 	 * 
-	 * @return the number of cents in the receipt
+	 * @return the value of the payment in the receipt
 	 */
 	public int getPayment();
 }

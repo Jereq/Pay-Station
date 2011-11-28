@@ -23,9 +23,9 @@ public interface PayStation {
 	void addPayment(Coin coin) throws IllegalCoinException;
 
 	/**
-	 * Returns the current payment in cents.
+	 * Returns the current payment in the current currency.
 	 * 
-	 * @return the amount paid in cents
+	 * @return the amount paid in the current currency
 	 */
 	int getPayment();
 
