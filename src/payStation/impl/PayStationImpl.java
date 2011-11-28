@@ -44,7 +44,7 @@ public class PayStationImpl implements PayStation {
 		if (coin.getCurrency() == currency && coin.isValid())
 			payment += coin.getValue();
 		else
-			throw new IllegalCoinException(coin.getValue());
+			throw new IllegalCoinException(coin);
 	}
 
 	@Override

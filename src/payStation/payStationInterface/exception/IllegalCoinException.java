@@ -1,32 +1,36 @@
 package payStation.payStationInterface.exception;
 
+import payStation.payStationInterface.Coin;
+
 /**
- * The class <code>IllegalCoinException</code> is an <code>Exception</code>
- * used to indicate that a invalid coin value has been used.
+ * The class <code>IllegalCoinException</code> is an <code>Exception</code> used
+ * to indicate that a invalid coin value has been used, or that the currency is
+ * not the right one.
  */
 public class IllegalCoinException extends Exception {
 	/**
 	 * Silence warning about <code>serialVersionUID</code> not present
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	private int coinValue;
-	
+
+	private Coin coin;
+
 	/**
-	 * Constructor passing the illegal coin value that caused this exception.
+	 * Constructor passing the coin that caused this exception.
 	 * 
-	 * @param coinValue the illegal coin value
+	 * @param coin
+	 *            the invalid coin
 	 */
-	public IllegalCoinException(int coinValue) {
-		this.coinValue = coinValue;
+	public IllegalCoinException(Coin coin) {
+		this.coin = coin;
 	}
-	
+
 	/**
-	 * Gets the illegal coin value that caused this exception.
+	 * Gets the invalid coin that caused this exception.
 	 * 
-	 * @return the illegal coin value
+	 * @return the invalid coin
 	 */
-	public int getCoinValue() {
-		return coinValue;
+	public Coin getCoin() {
+		return coin;
 	}
 }
